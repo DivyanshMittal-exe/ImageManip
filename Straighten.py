@@ -31,7 +31,7 @@ def calculate_angle(a, b, c):
     if 2*a[1] < b[1] + c[1]:
         angle = 180 + angle
 
-    return 180+angle
+    return angle
 
 
 
@@ -56,7 +56,7 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
         # print(len(landmarks))
         LeftShoulder = landmarks[mp_pose.PoseLandmark.LEFT_SHOULDER.value]
         RightShoulder = landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value]
-        Nose = landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value]
+        Nose = landmarks[mp_pose.PoseLandmark.NOSE.value]
 
         print(LeftShoulder)
 

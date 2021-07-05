@@ -1,13 +1,11 @@
-import cv2
+
 
 import cv2
-import mediapipe as mp
+
 import os
-from PIL import Image
-import time
+
 import numpy as np
-# mp_drawing = mp.solutions.drawing_utils
-# mp_pose = mp.solutions.pose
+
 
 def incircle(point,radius):
     if (point[0]-radius)**2 + (point[1]-radius)**2 <= radius**2:
@@ -30,7 +28,7 @@ for file in os.listdir(inputPath):
     print(file)
     img_initial = cv2.imread(inputPath + "\\" + file)
 
-def ImageCircle(img_initial,final_radius):
+def ImageCircleFace(img_initial,final_radius):
 
     grayImg = cv2.cvtColor(img_initial,cv2.COLOR_BGR2GRAY)
 

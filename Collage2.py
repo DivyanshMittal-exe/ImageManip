@@ -2,7 +2,8 @@ import numpy as np
 import random
 import os
 import cv2
-import CropImg2
+import CropImage
+import Backgound
 
 WIDTH = 1000
 HEIGHT = 1000
@@ -87,12 +88,12 @@ class Circle:
                     self.r += output[2]
 
                 elif len(CircleCollisions) == 2:
-                    output = growDouble(self.x,self.y,self.r,CircleCollisions[0],CircleCollisions[1],growRate)
-                    self.x += output[0]
-                    self.y += output[1]
-                    self.r += output[2]
-                    # self.growing = False
-                    # TotalFalse += 1
+                    # output = growDouble(self.x,self.y,self.r,CircleCollisions[0],CircleCollisions[1],growRate)
+                    # self.x += output[0]
+                    # self.y += output[1]
+                    # self.r += output[2]
+                    self.growing = False
+                    TotalFalse += 1
 
                 elif len(CircleCollisions) >= 3:
                     self.growing = False
@@ -176,7 +177,7 @@ for file in os.listdir(inputPath):
 
 
 for circle in CircleList:
-    img_out = CropImg2.ImageCircle(img_initial,2*circle.r)
+    img_out = CropImage.ImageCircle(img_initial,2*circle.r)
     # BlankImg[circle.y-circle.r:circle.y+circle.r,circle.x-circle.r:circle.x+circle.r] = img_out
     for row in range(2*circle.r):
         for col in range(2*circle.r):
